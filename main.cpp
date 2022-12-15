@@ -39,6 +39,10 @@ public:
 	int dequeue(int &deletedItem) {
 		if (head != NULL) {
 			deletedItem = head->data;
+
+			Node *temp = head;
+			delete temp;
+
 			head = head->next;
 			
 			return 1;
@@ -53,6 +57,16 @@ public:
 		while (curr != NULL) {
 			cout << curr->data << "   ";
 			curr = curr->next;
+		}
+	}
+
+	~Queue(){
+		while(head != NULL){
+
+			Node *temp = head;
+			delete temp;
+
+			head = head->next;
 		}
 	}
 
